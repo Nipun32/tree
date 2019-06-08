@@ -1,0 +1,24 @@
+int height(Node *root){
+    if(root==NULL)return 0;
+    int lft=height(root->left);
+    int rgt=height(root->right);
+    return(lft>rgt)?lft+1:rgt+1;
+}
+void reversePrintLevel(Node *root,int level){
+    if(level==1)cout<<root->data<<" ";
+    else{
+        reversePrintLevel(root->left,level-1);
+        reversePrintLevel(root->right,level-1);
+    }
+}
+void reversePrint(Node *root)
+{
+    //Your code here
+    if(root==NULL)return;
+    int hgt=height(root);
+    for(int i=hgt;i>0;i--){
+        reversePrintLevel(root,i);
+    }
+}
+//here we make use of recursion to do travesal level by level.
+//for many of level order traversal alongwith this method we can make use of two queses as well as use countNode method.
