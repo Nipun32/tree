@@ -5,6 +5,7 @@ int height(Node *root){
     return(lft>rgt)?lft+1:rgt+1;
 }
 void reversePrintLevel(Node *root,int level){
+if(node==NULL)return;
     if(level==1)cout<<root->data<<" ";
     else{
         reversePrintLevel(root->left,level-1);
